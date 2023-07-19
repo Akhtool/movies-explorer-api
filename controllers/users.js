@@ -36,13 +36,13 @@ module.exports.getCurrentUser = (req, res, next) => findUser(req.user._id, res, 
 
 module.exports.createUser = (req, res, next) => {
   const {
-    email, password, name, about, avatar,
+    email, password, name,
   } = req.body;
 
   bcrypt.hash(password, 16)
     .then((hash) => {
       User.create({
-        email, password: hash, name, about, avatar,
+        email, password: hash, name,
       })
         .then((user) => {
           const noPasswordUser = user.toObject({ useProjection: true });
@@ -62,8 +62,8 @@ module.exports.createUser = (req, res, next) => {
 };
 
 module.exports.updateUser = (req, res, next) => {
-  const { name, about } = req.body;
-  return changeUserData(req.user._id, { name, about }, res, next);
+  const { name, email } = req.body;
+  return changeUserData(req.user._id, { name, email }, res, next);
 };
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
@@ -86,13 +86,7 @@ module.exports.login = (req, res, next) => {
             { expiresIn: '7d' },
           );
 
-          res.cookie('jwt', token, {
-            maxAge: 7 * 24 * 60 * 60 * 1000,
-            httpOnly: true,
-            saneSite: true,
-          });
-
-          return res.send(user.toJSON({ useProjection: true }));
+          return res.send({ token });
         });
     })
 
