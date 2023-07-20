@@ -1,5 +1,5 @@
 # Бэкенд дипломного проекта на курсе "Вэб-разработчик"
-[Ссылка на репозиторий.](https://github.com/Akhtool/movies-explorer-api)
+Адрес репозитория: https://github.com/Akhtool/movies-explorer-api
 
 ## Директории  
 
@@ -25,5 +25,6 @@
 
 ## Ссылки на проект
 
--
--
+IP 84.201.158.100
+
+https://api.akhtool.movies.nomoredomains.xyz
