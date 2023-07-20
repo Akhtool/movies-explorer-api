@@ -10,8 +10,8 @@ const catchErrorsMiddleware = require('./middlewares/catchErrors');
 const { requestLogger } = require('./middlewares/logger');
 
 const allowedCors = [
-  // 'https://akhtool.mesto.nomoredomains.work',
-  // 'http://akhtool.mesto.nomoredomains.work',
+  'https://akhtool.movies.nomoredomains.xyz',
+  'http://akhtool.movies.nomoredomains.xyz',
   'localhost:3000',
   'http://localhost',
   'http://localhost:3001',
