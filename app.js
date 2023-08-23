@@ -12,10 +12,14 @@ const { requestLogger } = require('./middlewares/logger');
 const allowedCors = [
   'https://akhtool.movies.nomoredomains.xyz',
   'http://akhtool.movies.nomoredomains.xyz',
+  'https://movies-app-nine-coral.vercel.app',
+  'https://akhtool.movies.nomoredomainsicu.ru',
   'localhost:3000',
   'http://localhost',
   'http://localhost:3001',
   'http://localhost:3000',
+  'http://localhost:3002',
+  'localhost:3002',
 ];
 
 const corsOptions = {
@@ -36,4 +40,6 @@ app.use('/', require('./routes/index'));
 
 app.use(catchErrorsMiddleware);
 
-app.listen(PORT, () => {});
+app.listen(PORT, () => {
+  console.log(PORT);
+});
